@@ -8,7 +8,6 @@ import java.util.Objects;
 public class User {
 
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
    @Column(name = "name")
@@ -20,8 +19,8 @@ public class User {
    @Column(name = "email")
    private String email;
 
-   @OneToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "cars_id")
+   @OneToOne
+   @MapsId
    private Car car;
 
    public User() {}
